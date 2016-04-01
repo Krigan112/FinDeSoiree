@@ -1,7 +1,6 @@
 import {App, Platform} from 'ionic-angular';
 import {HTTP_PROVIDERS} from 'angular2/http'
-import {Showcase} from './showcase'
-
+import {HomePage} from './pages/HomePage';
 const appProviders = [
   HTTP_PROVIDERS
 ]
@@ -16,7 +15,7 @@ const appProviders = [
 export class MyApp {
 
   constructor(platform: Platform) {
-    this.rootPage = Showcase;
+    this.rootPage = HomePage;
 
     platform.ready().then(() => {
       // The platform is now ready. Note: if this callback fails to fire, follow
