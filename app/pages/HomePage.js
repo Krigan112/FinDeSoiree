@@ -1,5 +1,7 @@
 import {Page, NavController} from 'ionic-angular';
 import {GamePage} from './GamePage';
+import {ActionsPage} from './ActionsPage';
+import {VeritesPage} from './VeritesPage';
 
 @Page({
   template:`
@@ -17,5 +19,11 @@ export class HomePage{
   }
   launchGame(){
     this.nav.push(GamePage);
+  }
+  goToActionPage(){
+    this.nav.push(ActionsPage);
+  }
+  goToTruthPage(){
+    this.nav.push(VeritesPage);
   }
 }

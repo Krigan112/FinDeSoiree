@@ -1,23 +1,30 @@
-import {Page} from 'ionic-angular';
-import {Actions} from './Actions';
-import {Verites} from './Verites';
+import {Page, NavController} from 'ionic-angular';
 import {ActionsOuVerites} from './ActionsOuVerites';
+import {ActionsPage} from './ActionsPage';
+import {VeritesPage} from './VeritesPage';
+import {Glasses} from './Glasses';
 
 @Page({
   template:`
     <ion-content>
-      <h1>ça c'est le jeu:</h1>
       <actionsOuVerites (coinFlip)="onClick($event)"></actionsOuVerites>
-        <verites [hidden]="result == 'action'||''"></verites>
-        <actions [hidden] = "result== 'verite'||''"></actions>
+      <glasses></glasses>
     </ion-content>
   `,
-  directives:[Actions,Verites,ActionsOuVerites]
+  directives:[ActionsOuVerites, Glasses]
 })
 
 export class GamePage{
 
+  constructor(nav: NavController){
+    this.nav = nav;
+  }
+
   onClick(event) {
-    this.result = event;
+    if(event == 'action'){
+      this.nav.push(ActionsPage)
+    }else{
+      this.nav.push(VeritesPage);
+    }
   }
 }
